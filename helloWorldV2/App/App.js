@@ -27,10 +27,15 @@ export default class App extends Component {
     });
   }
 
+  nextScene() {
+    console.log(this.state)
+  }
+
   render() {
     return(
       <Login
         updateName={this.updateName.bind(this)}
+        nextScene={this.nextScene.bind(this)}
       />
     )
   }
