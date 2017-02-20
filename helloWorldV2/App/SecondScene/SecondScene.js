@@ -8,25 +8,15 @@ import {
   View
 } from 'react-native';
 
-const Login = ({ onPress }) => {
+const secondScene = ({ onPress, goBack }) => {
   return(
-    <View style={styles.container}>
-      <Text>Sup</Text>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          placeholder='Name'
-        />
-        <TextInput
-          style={styles.input}
-          placeholder='password'
-        />
-        <Button
-          title='button'
-          onPress={onPress}
-          style={styles.button}
-        />
-      </View>
+    <View>
+      <Text>Hi</Text>
+      <Button
+        title='button'
+        onPress={goBack}
+        style={styles.button}
+      />
     </View>
   )
 }
@@ -51,4 +41,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = Login;
+module.exports = secondScene;
