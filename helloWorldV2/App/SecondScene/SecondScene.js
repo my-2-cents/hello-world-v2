@@ -13,6 +13,9 @@ const secondScene = ({ onPress, goBack }) => {
     <View style={styles.container}>
       <View style={styles.container}>
         <Text>ThisIsTheSecondScene</Text>
+        <TextInput
+          placeholder='name?'
+        />
         <Button
           title='go forward'
           onPress={onPress}

@@ -83,7 +83,7 @@ export default class App extends Component {
   _renderScene(props) {
     const ComponentToRender = this._renderRoute(props.scene.route.key)
     return (
-      <ScrollView style={styles.scrollView}>
+      <ScrollView>
         {ComponentToRender}
       </ScrollView>
     );
@@ -100,6 +100,9 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
+  nav: {
+    flex: 1
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
