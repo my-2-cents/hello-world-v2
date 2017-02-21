@@ -8,21 +8,13 @@ import {
   View
 } from 'react-native';
 
-const secondScene = ({ onPress, goBack }) => {
+const thirdScene = ({ onPress, goBack }) => {
   return(
     <View style={styles.container}>
       <View style={styles.container}>
-        <Text>ThisIsTheSecondScene</Text>
-        <TextInput
-          placeholder='name?'
-        />
+        <Text>ThisIsTheThirdScene</Text>
         <Button
-          title='go forward'
-          onPress={onPress}
-          style={styles.button}
-        />
-        <Button
-          title='go back'
+          title='button'
           onPress={goBack}
           style={styles.button}
         />
@@ -51,4 +43,4 @@ const styles = StyleSheet.create({
   }
 })
 
-module.exports = secondScene;
+module.exports = thirdScene;

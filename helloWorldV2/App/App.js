@@ -10,6 +10,7 @@ import {
 
 import Login from './Login/Login.js'
 import SecondScene from './SecondScene/SecondScene.js'
+import ThirdScene from './ThirdScene/ThirdScene.js'
 
 const {
   CardStack: NavigationCardStack,
@@ -27,8 +28,8 @@ function createReducer(initialState) {
             currentState;
           default:
             return currentState;
-      }
-   }
+    }
+  }
 }
 
 const NavReducer = createReducer({
@@ -37,9 +38,8 @@ const NavReducer = createReducer({
   routes: [{key: 'Login'}]
 })
 
-
-
 export default class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -56,13 +56,13 @@ export default class App extends Component {
       navState: newState
     })
     return true;
- }
+  }
 
- handleBackAction() {
-   return this._handleAction({ type: 'pop' });
- }
+  handleBackAction() {
+    return this._handleAction({ type: 'pop' });
+  }
 
- _renderRoute (key) {
+  _renderRoute (key) {
   if (key === 'Login') {
     return <Login
              onPress={this._handleAction.bind(this,
@@ -72,13 +72,18 @@ export default class App extends Component {
     return <SecondScene
             goBack={this.handleBackAction.bind(this)}
             onPress={this._handleAction.bind(this,
-            { type: 'push', key: 'SecondScene' })} />
+            { type: 'push', key: 'ThirdScene' })} />
+  }
+  if (key === 'ThirdScene') {
+    return <ThirdScene
+            goBack={this.handleBackAction.bind(this)} />
   }
 }
+
   _renderScene(props) {
     const ComponentToRender = this._renderRoute(props.scene.route.key)
     return (
-      <ScrollView style={styles.scrollView}>
+      <ScrollView>
         {ComponentToRender}
       </ScrollView>
     );
@@ -95,6 +100,9 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
+  nav: {
+    flex: 1
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
